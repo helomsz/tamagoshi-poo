@@ -11,8 +11,8 @@ class Tamagoshi:
     def alimentar(self, quantidade):
         if (quantidade >= 0) and (quantidade <= 100):
             self.fome -= self.fome * (quantidade / 100)
-            print("nhac nhac nhac...")
-            print(f"{self.nome} foi alimentado e agora tem fome {self.fome:.1f}")
+            print("nhac nhac nhac... 😋😋😋😋")
+            print(f"{self.nome} foi alimentada e agora tem fome {self.fome:.1f}")
 
     def brincar(self, quantidade):
         if (quantidade >= 0) and (quantidade <= 100):
@@ -46,7 +46,7 @@ class Tamagoshi:
         self.energia -= 2
 
     def status(self):
-        print(f"🌸Status da {self.nome}:")
+        print(f"\n🌸 Status da {self.nome}:")
         print(f"Idade: {self.idade:.1f}")
         print(f"Fome: {self.fome:.1f}")
         print(f"Tédio: {self.tedio:.1f}")
@@ -66,25 +66,52 @@ class Tamagoshi:
         self.energia = 100
 
     def salvar_estado(self):
+        tipo = type(self).__name__  # isso vai pegar o nome da classe (ex: "BarbieTamagoshi")
         with open("estado_tamagoshi.txt", "w") as f:
-            f.write(f"{self.nome};{self.fome};{self.saude};{self.idade};{self.tedio};{self.energia};{self.dormindo}\n")
-
-    def carregar_estado(self):
+            f.write(f"{tipo};{self.nome};{self.fome};{self.saude};{self.idade};{self.tedio};{self.energia};{self.dormindo}\n")#pra salvar o estado em txt
+    
+            
+            
+    def carregar_tamagoshi_salvo():
         try:
             with open("estado_tamagoshi.txt", "r") as f:
                 dados = f.readline().strip().split(";")
-                self.nome = dados[0]
-                self.fome = float(dados[1])
-                self.saude = int(dados[2])
-                self.idade = float(dados[3])
-                self.tedio = float(dados[4])
-                self.energia = int(dados[5])
-                self.dormindo = dados[6] == "True"
+                tipo = dados[0]
+                nome = dados[1]
+                fome = float(dados[2])
+                saude = int(dados[3])
+                idade = float(dados[4])
+                tedio = float(dados[5])
+                energia = int(dados[6])
+                dormindo = dados[7] == "True"
 
-                if self.dormindo:  
-                    self.acordar()
+                # Cria o objeto correto
+                if tipo == "BarbieTamagoshi":
+                    bicho = BarbieTamagoshi(nome)
+                elif tipo == "PollyTamagoshi":
+                    bicho = PollyTamagoshi(nome)
+                elif tipo == "MonsterHighTamagoshi":
+                    bicho = MonsterHighTamagoshi(nome)
+                else:
+                    print("Tipo de Tamagoshi desconhecido.")
+                    return None
+
+                # Atribui os atributos salvos
+                bicho.fome = fome
+                bicho.saude = saude
+                bicho.idade = idade
+                bicho.tedio = tedio
+                bicho.energia = energia
+                bicho.dormindo = dormindo
+
+                if dormindo:
+                    bicho.acordar()
+
+                return bicho
+
         except FileNotFoundError:
-            pass
+            return None
+
 
 
 class BarbieTamagoshi(Tamagoshi):
@@ -161,23 +188,33 @@ class MonsterHighTamagoshi(Tamagoshi):
 
 
 def main():
-    print("✨ Escolha seu Tamagoshi ✨")
-    print("1 - Barbie")
-    print("2 - Polly")
-    print("3 - Monster High")
+    bicho = Tamagoshi.carregar_tamagoshi_salvo()
 
-    escolha = input("Digite o número: ")
-    nome = input("Digite o nome da sua bonequinha: ")
+    if bicho:
+        print(f"\n✨ Encontramos um bichinho salvo: {bicho.nome} ({type(bicho).__name__})")
+        resposta = input("Você quer continuar com esse bichinho? (s/n): ").lower() #s voce po em maiusculo ja converte TECNOLOOGIA
 
-    if escolha == "1":
-        bicho = BarbieTamagoshi(nome)
-    elif escolha == "2":
-        bicho = PollyTamagoshi(nome)
-    else:
-        bicho = MonsterHighTamagoshi(nome)
+        if resposta != "s":
+            bicho = None
 
- 
-    bicho.carregar_estado()
+    if not bicho:
+        print("✨ Escolha sua bonequinha Tamagoshi ✨")
+        print("1 - Barbie")
+        print("2 - Polly")
+        print("3 - Monster High")
+
+        escolha = input("Digite o número: ")
+        nome = input("Digite o nome da sua bonequinha: ")
+
+        if escolha == "1":
+            bicho = BarbieTamagoshi(nome)
+        elif escolha == "2":
+            bicho = PollyTamagoshi(nome)
+        elif escolha == "3":
+            bicho = MonsterHighTamagoshi(nome)
+        else:
+            print("Opção inválida... 🫢")
+            bicho = Tamagoshi(nome)
 
     while True:
         print("\nO que você quer fazer?")
@@ -197,7 +234,8 @@ def main():
             bicho.brincar(50)
 
         elif opcao == "3":
-            if isinstance(bicho, BarbieTamagoshi): #O isinstance vai fazer uma verificação pra saber qual bichinho eu tenho"
+            # 🎀 Menu da Barbie
+            if isinstance(bicho, BarbieTamagoshi):
                 print("\n🎀 Menu da Barbie 🎀")
                 print("1 - Se arrumar")
                 print("2 - Desfilar")
@@ -212,7 +250,7 @@ def main():
                 else:
                     print("Opção inválida!")
 
-            # ---- MENU DA POLLY ----
+            # 🌟 Menu da Polly
             elif isinstance(bicho, PollyTamagoshi):
                 print("\n🌟 Menu da Polly 🌟")
                 print("1 - Explorar")
@@ -228,7 +266,7 @@ def main():
                 else:
                     print("Opção inválida!")
 
-            # ---- MENU DA MONSTER HIGH ----
+            # 🕸️ Menu da Monster High
             elif isinstance(bicho, MonsterHighTamagoshi):
                 print("\n🕸️ Menu da Monster High 🕸️")
                 print("1 - Transformar")
@@ -253,8 +291,11 @@ def main():
         elif opcao == "0":
             bicho.dormir()
             bicho.salvar_estado()
-            print("Até mais! 👋")
+            print("💾 Estado salvo! Até mais! 👋")
             break
 
         else:
             print("Opção inválida!")
+            
+main()            
+                        
