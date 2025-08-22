@@ -235,7 +235,7 @@ def main():
 
         elif opcao == "3":
             # 🎀 Menu da Barbie
-            if isinstance(bicho, BarbieTamagoshi):
+            if isinstance(bicho, BarbieTamagoshi): #o isinstance vai fazer uma verificação pra saber qual bichinho eu tenho"
                 print("\n🎀 Menu da Barbie 🎀")
                 print("1 - Se arrumar")
                 print("2 - Desfilar")
