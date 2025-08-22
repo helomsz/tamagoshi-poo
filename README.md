@@ -2,7 +2,7 @@
 
 Bem-vinda ao **Bonequinhas Virtual**! 🎀🌸 Neste jogo, você pode cuidar da sua própria bonequinha e mantê-la linda e feliz! Escolha sua bonequinha favorita entre **Barbie**, **Polly** e **Monster High** e divirta-se cuidando dela! 💖👠
 
-O projeto foi feito com **Programação Orientada a Objetos (POO)** em Python, e você vai poder alimentar, brincar e até dar um look novo para sua bonequinha! 😍
+O projeto foi feito com **Programação Orientada a Objetos (POO)** em Python, e você vai poder alimentar, brincar e até dar um animalzinho novo para sua bonequinha! 😍
 
 ## 🛍️ Como Jogar?
 
