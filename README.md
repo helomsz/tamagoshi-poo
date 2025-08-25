@@ -12,7 +12,7 @@ Antes de começar, **garanta que o arquivo `txt` foi apagado** ou não existe na
 
 ### 2️⃣ **Escolha sua Bonequinha e Comece a Cuidar dela!**
 
-1. Após garantir que o arquivo `status.txt` foi apagado, execute o script Python.
+1. Após garantir que o arquivo `txt` foi apagado, execute o script Python.
 2. Você será recebida por uma tela fofa onde poderá escolher entre **Barbie**, **Polly** ou **Monster High**. 👗✨
 3. Cuide da sua bonequinha com carinho: alimente-a 🍔, brinque com ela 🎀 e faça ela se sentir linda! 💅
 
