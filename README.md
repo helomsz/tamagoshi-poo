@@ -20,10 +20,6 @@ Antes de começar, **garanta que o arquivo `txt` foi apagado** ou não existe na
 
 A cada ação que você faz, a bonequinha muda seu estado! Fique de olho no status e faça o máximo para manter sua bonequinha feliz, saudável e, claro, super estilosa! 😻💅
 
-## 💅 Requisitos
-
-- Python 3.x
-- Nenhuma dependência externa necessária! Só a biblioteca padrão do Python! 🖥️
 
 ## 🎀 Funcionalidades
 
