@@ -31,13 +31,15 @@ A cada ação que você faz, a bonequinha muda seu estado! Fique de olho no stat
 
 ## ⚠️ Observações Importantes
 
-- **Apague sempre o arquivo `txt`** antes de iniciar uma nova partida para garantir que a sua bonequinha comece a diversão do jeito certo! 💖
+> **Apague sempre o arquivo `txt`** antes de iniciar uma nova partida para garantir que a sua bonequinha comece a diversão do jeito certo! 💖
   
-> O jogo foi feito para fins educativos com **Programação Orientada a Objetos (POO)**. 🎮
 
+> O jogo foi feito para fins educativos com **Programação Orientada a Objetos (POO)**. 🎮
 
 
 ---
 
 🌟 **Agora, escolha sua bonequinha e comece a diversão!** 🌟
+
+
 
